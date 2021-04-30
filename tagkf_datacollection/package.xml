@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>tagkf_slam_datacollection</name>
+  <name>tagkf_datacollection</name>
   <version>0.0.0</version>
-  <description>The tagkf_slam_datacollection package</description>
+  <description>The tagkf_datacollection package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
