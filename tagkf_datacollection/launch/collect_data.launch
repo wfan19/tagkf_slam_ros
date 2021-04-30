@@ -1,0 +1,16 @@
+<launch>
+
+    <arg name="res" default="720" />
+    <arg name="fps" default="15" />
+
+    <include file="$(find jetson_csi_cam)/jetson_csi_$(arg res)p.launch">
+        <arg name="fps" value="$(arg fps)" />
+        <arg name="compression_format" value="jpeg" />
+        <arg name="png_level" value="2" />
+    </include>
+
+    <include file="$(find bno055_i2c)/launch/imu.launch">
+        <arg name="node_name" value="bno055" />
+    </include>
+
+</launch>
