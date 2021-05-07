@@ -1,13 +1,14 @@
 <launch>
     <arg name="file_name" default="default_name" />
     <arg name="path" default="$(find tagkf_datacollection)/bags" />
+    <arg name="duration" default="90"/> <!-- seconds -->
 
     <group if="$(eval arg('file_name') == 'default_name')">
-        <node pkg="rosbag" type="record" name="rosbag_recording" output="screen" args="-b 1700 /bno055/imu /csi_cam_0_720p/image_raw -o $(arg path)/" />
+        <node pkg="rosbag" type="record" name="rosbag_recording" output="screen" args="-b 1700 /bno055/imu /csi_cam_0_720p/image_raw -o $(arg path)/ --duration=$(arg duration)" />
     </group>
 
     <group unless="$(eval arg('file_name') == 'default_name')">
-        <node pkg="rosbag" type="record" name="rosbag_recording" output="screen" args="-b 1700 /bno055/imu /csi_cam_0_720p/image_raw -O $(arg path)/$(arg file_name)" />
+        <node pkg="rosbag" type="record" name="rosbag_recording" output="screen" args="-b 1700 /bno055/imu /csi_cam_0_720p/image_raw -O $(arg path)/$(arg file_name) --duration=$(arg duration)" />
     </group>
 
 </launch>
